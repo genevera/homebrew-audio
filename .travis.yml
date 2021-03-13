@@ -5,9 +5,7 @@ matrix:
       os: osx
 
 before_install:
-  - echo 'TRAVIS_REPO_SLUG = ' ${TRAVIS_REPO_SLUG}
-  - brew tap $TRAVIS_REPO_SLUG
-  - brew tap env($TRAVIS_REPO_SLUG}
+  - brew tap ${TRAVIS_REPO_SLUG/homebrew-/}
   - brew update
 
 script:
