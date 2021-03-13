@@ -3,15 +3,17 @@ matrix:
   include:
     - language: cpp
       os: osx
-      osx_image: xcode11.3
 
 before_install:
-  - brew tap david0/homebrew-audio 
+  - softwareupdate --all --install --force
+  - brew tap $TRAVIS_REPO_SLUG
   - brew update
 
 script:
-  - travis_wait brew install --formula `grep -l url Formula/*.rb|grep -vE 'joeboy|ardour'`
-  - brew test `grep -l url Formula/*.rb|grep -vE 'joeboy|ardour'`
+  - brew install `grep -l url Formula/*.rb|grep -v joeboy`
+  - brew test `grep -l url Formula/*.rb|grep -v joeboy`
+  - brew install --HEAD `grep -l head Formula/*.rb`
+  - brew test `grep -l head Formula/*.rb`
 
 notifications:
   email:
