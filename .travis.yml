@@ -3,11 +3,11 @@ matrix:
   include:
     - language: cpp
       os: osx
-      osx_image: xcode11.3
-
-before_install:
-  - brew tap david0/homebrew-audio 
-  - brew update
+      osx_image: xcode12.2
+      addons:
+        homebrew:
+          taps: david0/homebrew-audio
+          update: true
 
 script:
   # zita will be implicitly installed, ardour takes too long
