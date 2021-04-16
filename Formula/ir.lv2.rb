@@ -10,7 +10,6 @@ class IrLv2 < Formula
   depends_on "glib"
   depends_on "libsamplerate"
   depends_on "lv2"
-  depends_on "zita-convolver"
 
   # exp10 does not exist on OS/X
   patch :p1, :DATA
