@@ -10,9 +10,8 @@ before_install:
   - brew update
 
 script:
-  # zita will be implicitly installed, ardour takes too long
-  - brew install --formula `grep -l url Formula/*.rb|grep -vE 'joeboy|ardour|zita'`
-  - brew test `grep -l url Formula/*.rb|grep -vE 'joeboy|ardour|zita'`
+  - travis_wait brew install --formula `grep -l url Formula/*.rb|grep -vE 'joeboy|ardour'`
+  - brew test `grep -l url Formula/*.rb|grep -vE 'joeboy|ardour'`
 
 notifications:
   email:
