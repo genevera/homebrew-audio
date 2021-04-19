@@ -7,7 +7,6 @@ matrix:
       addons:
         homebrew:
           taps: david0/homebrew-audio
-          update: false
 
 script:
   # zita will be implicitly installed, ardour takes too long
